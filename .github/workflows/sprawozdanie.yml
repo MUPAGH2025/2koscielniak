@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: sudo apt-get install texlive-xetex 
-      - pip install scipy pint open_atmos_jupyter_utils matplotlib 
+      - run: pip install scipy pint open_atmos_jupyter_utils matplotlib 
