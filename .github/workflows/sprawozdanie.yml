@@ -1,0 +1,8 @@
+name: sprawozdanie
+on: push 
+
+jobs:
+  plot:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: sudo apt-get install texlife-xetex 
