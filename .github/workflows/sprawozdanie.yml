@@ -8,4 +8,4 @@ jobs:
       - run: sudo apt-get install texlive-xetex pandoc inkscape 
       - run: pip install scipy pint open_atmos_jupyter_utils matplotlib nbconvert 
       - uses: actions/checkout@v4 
-      - run python -m nbconvert -- to pdf --execute MUP_1.ipynb 
+      - run: python -m nbconvert -- to pdf --execute MUP_1.ipynb 
