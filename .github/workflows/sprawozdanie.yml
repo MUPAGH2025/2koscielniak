@@ -5,4 +5,5 @@ jobs:
   plot:
     runs-on: ubuntu-22.04
     steps:
-      - run: sudo apt-get install texlife-xetex 
+      - run: sudo apt-get install texlive-xetex 
+      - pip install scipy pint open_atmos_jupyter_utils matplotlib 
