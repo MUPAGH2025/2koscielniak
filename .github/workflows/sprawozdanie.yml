@@ -1,0 +1,14 @@
+name: sprawozdanie
+on: push 
+
+jobs:
+  plot:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: sudo apt-get install texlive-xetex pandoc inkscape 
+      - run: pip install scipy pint open_atmos_jupyter_utils matplotlib nbconvert ipykernel
+      - uses: actions/checkout@v4 
+      - run: python -m nbconvert --to pdf --execute MUP_1.ipynb 
+      - uses: actions/upload-artifact@v4
+        with:
+          path: MUP_1.pdf
