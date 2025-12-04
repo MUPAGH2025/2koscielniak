@@ -1,14 +1,20 @@
 name: projekt
-on: push 
+on: push
 
 jobs:
   plot:
     runs-on: ubuntu-22.04
     steps:
-      - run: sudo apt-get install texlive-xetex pandoc inkscape 
-      - run: pip install numpy matplotlib PyMPDATA ipykernel
       - uses: actions/checkout@v4 
-      - run: python -m nbconvert --to pdf --execute shallow_water_works.ipynb
+
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y texlive-xetex pandoc inkscape
+
+      - run: pip install numpy matplotlib PyMPDATA ipykernel nbconvert
+
+      # Generate PDF with config that preserves SVG
+      - run: python -m nbconvert --to pdf --execute shallow_water_works.ipynb --config nbconvert_config.py
+
       - uses: actions/upload-artifact@v4
         with:
-          path: MUP_1.pdf
+          path: shallow_water_works.pdf
