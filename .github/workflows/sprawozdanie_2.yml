@@ -1,5 +1,5 @@
 name: sprawozdanie
-on: push 
+# on: push 
 
 jobs:
   plot:
