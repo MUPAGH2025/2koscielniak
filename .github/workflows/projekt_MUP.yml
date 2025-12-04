@@ -1,0 +1,14 @@
+name: projekt
+on: push 
+
+jobs:
+  plot:
+    runs-on: ubuntu-22.04
+    steps:
+      - run: sudo apt-get install texlive-xetex pandoc inkscape 
+      - run: pip install numpy matplotlib PyMPDATA ipykernel
+      - uses: actions/checkout@v4 
+      - run: python -m nbconvert --to pdf --execute shallow_water_works.ipynb
+      - uses: actions/upload-artifact@v4
+        with:
+          path: MUP_1.pdf
