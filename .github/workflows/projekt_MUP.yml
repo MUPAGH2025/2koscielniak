@@ -1,24 +1,14 @@
 name: projekt
-on: push
+on: push 
 
 jobs:
   plot:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
-      - run: sudo apt-get update
-      - run: sudo apt-get install -y texlive-xetex pandoc inkscape
-
-      - run: pip install numpy matplotlib PyMPDATA ipykernel nbconvert
-
-      - run: python -m nbconvert --to pdf --execute shallow_water_works.ipynb --config nbconvert_config.py
-
+      - run: sudo apt-get install texlive-xetex pandoc inkscape 
+      - run: pip install numpy matplotlib pyMPDATA ipykernel nbconvert
+      - uses: actions/checkout@v4 
+      - run: python -m nbconvert --to pdf --execute shallow_water_works.ipynb
       - uses: actions/upload-artifact@v4
         with:
-          path: shallow_water_works.pdf
-
+          path: MUP_projekt.pdf
