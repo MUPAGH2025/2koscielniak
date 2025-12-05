@@ -11,4 +11,4 @@ jobs:
       - run: python -m nbconvert --to pdf --execute shallow_water_works.ipynb
       - uses: actions/upload-artifact@v4
         with:
-          path: MUP_projekt.pdf
+          path: shallow_water_works.pdf
