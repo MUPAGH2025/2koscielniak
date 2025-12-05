@@ -1,5 +1,6 @@
 import numpy as np
 from PyMPDATA import ScalarField, Solver, Stepper, VectorField, Options, boundary_conditions
+import os
 
 
 class ShallowWaterEquationsIntegrator:
@@ -119,4 +120,5 @@ grav = 10
 solver1 = ShallowWaterEquationsIntegrator(h_initial=h_0, omega_per_iter=omega_it, amplitude=amp)
 output1 = solver1(nt=175, g=grav, dt_over_dxy=(dt, dt), outfreq=1)
 
-np.save("output1.npy", output1)
+output_path = os.path.join(os.getcwd(), "output1.npy")
+np.save(output_path, output1)
