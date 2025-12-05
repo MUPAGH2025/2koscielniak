@@ -1,4 +1,4 @@
-name: sprawozdanie
+name: projekt
 on: push 
 
 jobs:
